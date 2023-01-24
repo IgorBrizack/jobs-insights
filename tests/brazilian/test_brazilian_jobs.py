@@ -2,6 +2,6 @@ from src.pre_built.brazilian_jobs import read_brazilian_file
 
 
 def test_brazilian_jobs():
-    result = read_brazilian_file('tests/mocks/brazilians_jobs.csv')
+    result = read_brazilian_file("tests/mocks/brazilians_jobs.csv")
     for job in result:
-        assert 'title' in job and 'salary' in job and 'type' in job
+        assert "title" in job and "salary" in job and "type" in job
