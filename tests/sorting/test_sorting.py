@@ -11,5 +11,5 @@ def test_sort_by_criteria():
     sort_by(read_list, "max_salary")
     assert int(read_list[0]["max_salary"]) > int(read_list[1]["max_salary"])
 
-    # sort_by(read_list, "date_posted")
-    # assert int(read_list[0]["max_salary"]) > int(read_list[2]["max_salary"])
+    sort_by(read_list, "date_posted")
+    assert int(read_list[0]["max_salary"]) > int(read_list[10]["max_salary"])
