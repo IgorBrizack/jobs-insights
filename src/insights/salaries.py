@@ -8,8 +8,8 @@ def get_max_salary(path: str) -> int:
     result_from_read = read(path)
 
     for salary in result_from_read:
-        if len(salary['max_salary']) > 0 and salary['max_salary'] != 'invalid':
-            salary_list.append(salary['max_salary'])
+        if len(salary["max_salary"]) > 0 and salary["max_salary"] != "invalid":
+            salary_list.append(salary["max_salary"])
 
     for max_salarys in salary_list:
         if int(max_salarys) > max_salary:
@@ -24,8 +24,8 @@ def get_min_salary(path: str) -> int:
     result_from_read = read(path)
 
     for salary in result_from_read:
-        if len(salary['min_salary']) > 0 and salary['min_salary'] != 'invalid':
-            salary_list.append(salary['min_salary'])
+        if len(salary["min_salary"]) > 0 and salary["min_salary"] != "invalid":
+            salary_list.append(salary["min_salary"])
 
     min_salary = min(int(salary) for salary in salary_list)
 
@@ -34,19 +34,18 @@ def get_min_salary(path: str) -> int:
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     try:
-        if not int(job['min_salary']) and not int(job['max_salary']):
+        if not int(job["min_salary"]) and not int(job["max_salary"]):
             raise ValueError
-        if job['min_salary'] > job['max_salary']:
+        if int(job["min_salary"]) > int(job["max_salary"]):
             raise ValueError
-        return job['min_salary'] <= int(salary) <= job['max_salary']
+        return int(job["min_salary"]) <= int(salary) <= int(job["max_salary"])
     except Exception:
         raise ValueError
 
 
 def filter_by_salary_range(
-    jobs: List[dict],
-    salary: Union[str, int]
-        ) -> List[Dict]:
+    jobs: List[dict], salary: Union[str, int]
+) -> List[Dict]:
     result = []
 
     for job in jobs:
@@ -55,5 +54,4 @@ def filter_by_salary_range(
                 result.append(job)
         except Exception:
             pass
-    print(result)
     return result
